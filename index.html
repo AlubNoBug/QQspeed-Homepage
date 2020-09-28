@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        #main { 
+            background: url(./img/guanwang.jpg) no-repeat center 0;
+            height: 780px;
+        }
+        #nav {
+            background: url(./img/nav_down_re.png), url(./img/nav.png) no-repeat center 0;
+        }
+        #nav .container { overflow: hidden; min-height: 236px;}
+        #nav .nav_logo{
+            width: 138px;
+            height: 112px;
+            margin: 14px auto;
+        }
+        #nav dl { 
+            position: absolute;
+            top: 0;
+        }
+        #nav dt {
+            height: 63px;
+        }
+        #nav dt a { 
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+        #nav dd {
+            line-height: 28px;
+            font-size: 12px;
+            text-align: center;
+        }
+        #nav dd a { 
+            color: white;
+            position: relative;
+        }
+        #nav dd a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+        #nav dd a.hot::after, #nav dd a.new::after {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: url(./img/nav_tips.png) no-repeat;
+            position: absolute;
+            right: -15px;
+            top: 0;
+        }
+        #nav dd a.hot::after {
+            background-position: 0 -12px;
+        }
+        #nav dd a.new::after {
+            background-position: 0 0;
+        }
+        #nav .nav_index { 
+            width: 63px;
+            left: 15px;
+        }
+        #nav .nav_yxzl { 
+            width: 85px;
+            left: 100px;
+        }
+        #nav .nav_sszx { 
+            width: 85px;
+            left: 210px;
+        }
+        #nav .nav_hdzx { 
+            width: 85px;
+            left: 325px;
+        }
+        #nav .nav_sczq {
+            width: 85px;
+            left: 567px;
+        }
+        #nav .nav_spzb {
+            width: 85px;
+            left: 688px;
+        }
+        #nav .nav_wjhd {
+            width: 85px;
+            left: 805px;
+        }
+        #nav .nav_kefu {
+            width: 90px;
+            left: 905px;
+        }
+        #link { height: 160px;}
+        #link a { 
+            width: 976px;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        #banner {
+            margin-top: 40px;
+            height: 276px;
+            background: url(./img/top.png) no-repeat;
+        }
+        #banner .banner_left{
+            width: 240px;
+            background: url(./img/down_user_spr.png) no-repeat;
+            height: 310px;
+            margin: -20px 0 0 2px;
+        }
+        #banner .banner_download p {
+            width: 90px;
+            height: 24px;
+            display: block;
+            background: url(./img/down_user_spr.png) no-repeat;
+            margin: 0 auto;
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+        #banner .banner_download p:first-child { 
+            background-position: -254px 0;
+            margin-top: 44px;
+        }
+        #banner .banner_download p:last-child { background-position: -254px -24px;}
+
+        /* CSS3简单动画 */
+        #banner .banner_download:hover p:first-child { animation: 1s upMove;}
+        @keyframes upMove {
+            0% { transform: translateY(-10px); opacity: 0;}
+            100% { transform: translateY(0); opacity: 1;}
+        }
+        #banner .banner_download:hover p:last-child { animation: 1s downMove;}
+        @keyframes downMove {
+            0% { transform: translateY(10px); opacity: 0;}
+            100% { transform: translateY(0); opacity: 1;}
+        }
+        /* CSS3简单动画 */
+        
+        #banner .banner_user div {
+            border-radius: 50%;
+            margin: 80px auto 0 auto;
+            border: 3px solid #283257;
+            box-sizing: border-box;
+            width: 56px;
+            height: 56px;
+            overflow: hidden;
+        }
+        #banner .banner_user img {
+            width: 100%;
+            height: 100%;
+        }
+        #banner .banner_user p {
+            text-align: center;
+            color: #e0e4ff;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+        #banner .banner_user a { color: #4dffdb;}
+        #banner .banner_list { 
+            width: 497px;
+            height: 253px;
+            overflow: hidden;
+            margin: 13px 0 0 4px;
+            position: relative;
+        }
+        #banner .banner_list_ul { 
+            width: 2000px;
+        }
+        #banner .banner_list_ul li {
+            width: 497px;
+            height: 253px;
+            float: left;
+        }
+        #banner .banner_bottomline { 
+            width: 100%;
+            /* 绝对定位后要手动改width */
+            height: 37px; 
+            background: rgba(0, 0, 0, .5);
+            border-top: 1px solid #514b55;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        #banner .banner_bottomline_ul {
+            text-align: center;
+            margin-top: 11px;
+        }
+        #banner .banner_bottomline_ul li {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            background: url(./img/top.png) no-repeat -603px -299px;
+            cursor: pointer;
+        }
+        #banner .banner_bottomline_ul li:active {
+            background-position: -581px -299px;
+        }
+        #banner .banner_bottomline_leftbtn, .banner_bottomline_rightbtn {
+            position: absolute;
+            top: 5px;
+            background: url(./img/top.png) no-repeat ;
+            height: 22px;
+            width: 12px;
+            cursor: pointer;
+        }
+        #banner .banner_bottomline_leftbtn {
+            left: 5px;
+            background-position: -542px -296px;
+        }
+        #banner .banner_bottomline_rightbtn {
+            right: 5px;
+            background-position: -554px -296px;
+        }
+        #banner .banner_bottomline_leftbtn:hover { background-position: -542px -325px;}
+        #banner .banner_bottomline_rightbtn:hover { background-position: -554px -325px;}
+        #banner .banner_list_lt, .banner_list_rt, .banner_list_lb, .banner_list_rb {
+            width: 12px;
+            height: 12px;
+            background: url(./img/top.png) no-repeat;
+            position: absolute;
+        } 
+        #banner .banner_list_lt {
+            left: -3px; 
+            top: -4px;
+            background-position: -621px -299px;
+        }
+        #banner .banner_list_rt {
+            right: -2px; 
+            top: -2px;
+            background-position: -634px -299px;
+        }
+        #banner .banner_list_lb {
+            left: -4px; 
+            bottom: -4px;
+            background-position: -621px -312px;
+        }
+        #banner .banner_list_rb {
+            right: -3px; 
+            bottom: -4px;
+            background-position: -634px -312px;
+        }
+        #banner .banner_right {
+            width: 209px;
+            height: 255px;
+            position: relative;
+            margin: 13px 0 0 11px;
+        }
+        #banner .banner_right_lt, .banner_right_rt, .banner_right_lb, .banner_right_rb {
+            background: url(./img/top.png) no-repeat;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+        }
+        #banner .banner_right_lt {
+            left: -4px;
+            top: -5px;
+            background-position: -681px -298px;
+        }
+        #banner .banner_right_rt {
+            right: -5px;
+            top: -5px;
+            background-position: -696px -298px;
+        }
+        #banner .banner_right_lb {
+            left: -4px;
+            bottom: -5px;
+            background-position: -681px -313px;
+        }
+        #banner .banner_right_rb {
+            right: -5px;
+            bottom: -7px;
+            background-position: -696px -313px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id="head" class="container-fluid">
+        <div class="container">
+            <div class="head_logo l">
+                <a href="#"></a>
+            </div>
+            <div class="head_ad l">
+                <a href="">
+                    <img src="./img/nizhan.jpg" alt="">
+                </a>
+            </div>
+            <div class="head_menu r">
+                <div class="head_menu_czsh l">
+                    <a href="#">成长守护平台</a>
+                </div>
+                <div class="head_menu_top l">
+                    <a href="#">腾讯游戏排行榜</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="container-fluid">
+        <div id="nav" class="container-fluid">
+            <div class="container">
+                <div class="nav_logo">
+                    <a href="#">
+                        <img src="./img/inside_logo.png" alt="QQ飞车", title="QQ飞车">
+                    </a>
+                </div>
+                <dl class="nav_index l">
+                    <dt>
+                        <a href="#">首页</a>
+                    </dt>
+                </dl>
+                <dl class="nav_yxzl l">
+                    <dt></dt>
+                    <dd><a href="#">新手指引</a></dd>
+                    <dd><a class="hot" href="#">官方漫画</a></dd>
+                    <dd><a class="new" href="#">飞车手游</a></dd>
+                    <dd><a href="#">精美壁纸</a></dd>
+                    <dd><a href="#">游戏下载</a></dd>
+                </dl>
+                <dl class="nav_sszx l">
+                    <dt></dt>
+                    <dd><a class="hot" href="#">谁是车王</a></dd>
+                    <dd><a href="#">SSC</a></dd>
+                    <dd><a href="#">全国公开赛</a></dd>
+                </dl>
+                <dl class="nav_hdzx l">
+                    <dt></dt>
+                    <dd><a class="hot" href="#">版本专区</a></dd>
+                    <dd><a href="#">合作专区</a></dd>
+                    <dd><a href="#">CDK兑换</a></dd>
+                </dl>
+                <dl class="nav_sczq l">
+                    <dt></dt>
+                    <dd><a href="#">紫钻专区</a></dd>
+                    <dd><a href="#">道聚城</a></dd>
+                    <dd><a href="#">点券充值</a></dd>
+                </dl>
+                <dl class="nav_spzb l">
+                    <dt></dt>
+                    <dd><a href="#">教学视频</a></dd>
+                    <dd><a href="#">视频中心</a></dd>
+                </dl>
+                <dl class="nav_wjhd l">
+                    <dt></dt>
+                    <dd><a href="#">官方论坛</a></dd>
+                    <dd><a class="hot" href="#">掌上飞车</a></dd>
+                    <dd><a href="#">兴趣部落</a></dd>
+                    <dd><a href="#">官方微信</a></dd>
+                    <dd><a href="#">官方微博</a></dd>
+                </dl>
+                <dl class="nav_kefu l">
+                    <dt></dt>
+                    <dd><a href="#">客服中心</a></dd>
+                    <dd><a class="new" href="#">安全信用体系</a></dd>
+                    <dd><a href="#">封号查询</a></dd>
+                    <dd><a href="#">游戏安全测评</a></dd>
+                </dl>
+            </div>
+        </div>
+        <div id="link" class="container">
+            <a href="#"></a>
+        </div>
+        <div id="banner" class="container">
+            <div class="banner_left l">
+                <div class="banner_download">
+                    <p>下载游戏</p>
+                    <p>DOWNLOAD</p>
+                </div>
+                <div class="banner_user">
+                    <div>
+                        <img src="./img/logo.jpg" alt="">
+                    </div>
+                    <p>欢迎<a href="#">登录</a>，进入飞车世界</p>
+                </div>
+            </div>
+            <div class="banner_center l">
+                <div class="banner_list">
+                    <ul class="banner_list_ul">
+                        <li><a href="#"><img src="https://ossweb-img.qq.com/upload/adw/image/20200909/86ddfd597bb72eba528cbda02a91b8fa.jpeg" alt=""></a></li>
+                        <li><a href="#"><img src="https://ossweb-img.qq.com/upload/adw/image/20200918/ccd7a82c3d1bd6250a33647205913ac5.png" alt=""></a></li>
+                        <li><a href="#"><img src="https://ossweb-img.qq.com/upload/adw/image/20200918/086c411750f9962325b116579b5a2db0.jpeg" alt=""></a></li>
+                    </ul>
+                    <div class="banner_bottomline">
+                        <ul class="banner_bottomline_ul">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div class="banner_bottomline_leftbtn"></div>
+                        <div class="banner_bottomline_rightbtn"></div>
+                    </div>
+                    <i class="banner_list_lt"></i>
+                    <i class="banner_list_rt"></i>
+                    <i class="banner_list_lb"></i>
+                    <i class="banner_list_rb"></i>
+                </div>
+            </div>
+            <div class="banner_right l">
+                <a href="#"><img src="./img/ad.jpeg" alt=""></a>
+                <i class="banner_right_lt"></i>
+                <i class="banner_right_rt"></i>
+                <i class="banner_right_lb"></i>
+                <i class="banner_right_rb"></i>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
